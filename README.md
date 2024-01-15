@@ -1,6 +1,10 @@
 <div align="center">
     <p>
+<<<<<<< HEAD
         <img src="https://raw.githubusercontent.com/rogerionasc/wcode_clinic/main/src/assets/img/web_code.svg" width="1020" />
+=======
+         <img src="https://raw.githubusercontent.com/rogerionasc/wcode_clinic/dev/src/assets/img/web_code.svg" width="1020" />
+>>>>>>> dev
     </p>
 </div>
 

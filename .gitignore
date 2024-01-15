@@ -1,3 +1,5 @@
-#COMENTARIO
+# Ignorar a pasta vendor/
 vendor/
-.ide/
+
+# Ignorar a pasta .idea/
+.idea/
