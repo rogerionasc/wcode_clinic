@@ -1,10 +1,6 @@
 <div align="center">
     <p>
-<<<<<<< HEAD
-         <img src="https://raw.githubusercontent.com/rogerionasc/wcode_clinic/main/src/assets/img/logo_wcode.svg" width="420" />
-=======
-        <img src="https://raw.githubusercontent.com/rogerionasc/wcode_clinic/main/src/assets/img/web_code.svg" width="420" />
->>>>>>> b9c492b4e6cbc050f5a4157c606794073a31776d
+        <img src="https://raw.githubusercontent.com/rogerionasc/wcode_clinic/main/src/assets/img/web_code.svg" width="1020" />
     </p>
 </div>
 
