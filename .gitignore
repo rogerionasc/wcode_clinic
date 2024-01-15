@@ -1,5 +1,5 @@
 # Ignorar a pasta vendor/
-vendor/
+vendor/*
 
 # Ignorar a pasta .idea/
-.idea/
+.idea/*
