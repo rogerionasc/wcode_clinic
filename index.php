@@ -2,7 +2,8 @@
 
 require_once 'vendor/autoload.php';
 
-$psr = new \App\Controllers\HomeController();
+$psr = App\Controllers\Connected::getInstance();
+$psr1 = App\Controllers\Connected::getInstance();
 
-var_dump($psr);
+var_dump($psr, $psr1);
 
