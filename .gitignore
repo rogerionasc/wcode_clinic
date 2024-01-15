@@ -5,4 +5,4 @@ vendor/*
 .idea/*
 
 # Ignorar a pasta .composer.lock/
-.composer.lock
+composer.lock
