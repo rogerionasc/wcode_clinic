@@ -1,6 +1,6 @@
 <div align="center">
     <p>
-        <img src="https://raw.githubusercontent.com/rogerionasc/wcode_clinic/main/src/assets/img/logo_wcode.svg" width="420" />
+         <img src="https://raw.githubusercontent.com/rogerionasc/wcode_clinic/dev/src/assets/img/web_code.svg" width="1020" />
     </p>
 </div>
 
@@ -168,3 +168,4 @@ Em nenhuma circunstância a WCode Solução e Inovação LTDA será responsável
 Este contrato é regido pelas leis da República Federativa do Brasil. As partes concordam que qualquer disputa decorrente deste contrato será resolvida pelos tribunais competentes na jurisdição da sede da WCode Solução e Inovação LTDA.
 
 Ao utilizar o Software, o Usuário concorda com os termos e condições deste contrato, em conformidade com a legislação brasileira vigente.
+
