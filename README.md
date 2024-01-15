@@ -1,6 +1,6 @@
 <div align="center">
     <p>
-         <img src="https://raw.githubusercontent.com/rogerionasc/wcode_clinic/main/src/assets/img/logo_wcode.svg" width="420" />
+         <img src="https://raw.githubusercontent.com/rogerionasc/wcode_clinic/main/src/assets/img/web_code.svg" width="420" />
     </p>
 </div>
 
