@@ -3,3 +3,6 @@ vendor/*
 
 # Ignorar a pasta .idea/
 .idea/*
+
+# Ignorar a pasta .composer.lock/
+.composer.lock/*
