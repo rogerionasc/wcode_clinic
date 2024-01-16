@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\models;
 
 class Connected
 {
