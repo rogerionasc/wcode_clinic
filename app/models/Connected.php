@@ -19,6 +19,7 @@ class Connected
                     ""
                 );
             }
+
         }catch (\PDOException $exception){
             echo "Erro ao conectar";
 
