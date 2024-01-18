@@ -55,8 +55,8 @@ abstract class Model
         try {
             $stmt = Connected::getInstance()->prepare($select);
             if($params){
-
                 parse_str($params, $params);
+
 
                 foreach ($params as $key => $value){
                     $type = (is_numeric($value) ? \PDO::PARAM_INT: \PDO::PARAM_STR);
@@ -105,12 +105,5 @@ abstract class Model
     {
         
     }
-    
-    
-
-
-
-
-
 
 }

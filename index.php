@@ -2,7 +2,7 @@
 require __DIR__ . '/../wcode_clinic/fullstackphp/fsphp.php';
 require_once 'vendor/autoload.php';
 
-fullStackPHPClassName("CLASS_TITLE");
+fullStackPHPClassName("DEBBUG");
 
 /*
  *

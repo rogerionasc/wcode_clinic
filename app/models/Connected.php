@@ -4,6 +4,7 @@ namespace App\models;
 
 class Connected
 {
+
     private static $instance;
 
     /**
@@ -16,7 +17,9 @@ class Connected
                 self::$instance = new \PDO(
                     "mysql:host=".CONF_DB_HOST."; dbname=".CONF_DB_NAME,
                     CONF_DB_ROOT,
-                    CONF_DB_PWD
+                    CONF_DB_PWD,
+                    CONF_DB_OPTION
+
                 );
             }
 
