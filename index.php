@@ -11,7 +11,13 @@ fullStackPHPClassSession("Herança e Polimorfismo", __LINE__);
 
 $model = new \App\models\User();
 
-$user = $model->load("1");
+$user = $model->load("111");
+
+var_dump($user);
+
+
+
+
 
 
 

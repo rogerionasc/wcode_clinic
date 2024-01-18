@@ -13,6 +13,20 @@ abstract class Model
     /** @var string\null **/
     protected $message;
 
+//    public function __set($name, $value)
+//    {
+//        if (empty($this->data)){
+//            $this->data = new \stdClass();
+//        }
+//        $this->data->name = $value;
+//
+//    }
+
+//    public function __get(string $name)
+//    {
+//        // TODO: Implement __get() method.
+//    }
+
     /**
      * @return object|null
      */
@@ -48,15 +62,14 @@ abstract class Model
     /**
      * @param string $select
      * @param string|null $params
-     * @return false|\PDOStatement|null
+     * @return \PDOStatement|null
      */
-    protected function read(string $select, string $params = null)
+    protected function read(string $select, string $params = null): ?\PDOStatement
     {
         try {
             $stmt = Connected::getInstance()->prepare($select);
             if($params){
                 parse_str($params, $params);
-
 
                 foreach ($params as $key => $value){
                     $type = (is_numeric($value) ? \PDO::PARAM_INT: \PDO::PARAM_STR);
@@ -64,6 +77,7 @@ abstract class Model
                 }
             }
             $stmt->execute();
+
             return  $stmt;
 
         }catch (\PDOException $exception){

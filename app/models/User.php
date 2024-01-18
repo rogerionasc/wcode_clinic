@@ -17,10 +17,15 @@ class User extends Model
     }
 
     /** metódo responsável por buscar usuário por id */
-    public function load(int $id, string $columns = "*")
+    public function load(int $id, string $columns = "*"): ?User
     {
         $load = $this->read("SELECT {$columns} FROM ".self::$entity." WHERE  id = :id", "id={$id}");
-        var_dump($load->fetch());
+        if ($this->fail() || !$load->rowCount()){
+            $this->message = "Usuário não encontrado";
+            return null;
+        }
+
+        return var_dump($load->fetchObject(__CLASS__));
 
 
 
