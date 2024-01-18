@@ -8,7 +8,7 @@
 <div align="center">
     <p>
          <a href="#">
-            <img src="https://img.shields.io/github/repo-size/rogerionasc/gesoft?style=flat-square" alt="Repo Size" />
+            <img src="https://img.shields.io/github/repo-size/rogerionasc/wcode_clinic?style=flat-square" alt="Repo Size" />
          </a>
            <a href="https://hub.docker.com/r/rogerionasc/gesoft/tags">
             <img src="https://img.shields.io/docker/v/rogerionasc/gesoft?arch=amd64&sort=date&style=flat-square alt="Version docker " />
