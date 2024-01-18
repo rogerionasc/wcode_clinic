@@ -19,6 +19,7 @@ class Connected
                     CONF_DB_PWD
                 );
             }
+
         }catch (\PDOException $exception){
             echo "Erro ao conectar";
 

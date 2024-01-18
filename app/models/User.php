@@ -6,6 +6,8 @@ class User extends Model
 {
     /** @var array $safe no apdate ou create  */
     protected static $safe = ["id", "created_at", "update_at"];
+
+    /** @var string $entity */
     protected static $entity = "users";
 
     /** metódo responsável por cadastrar o usuario */
@@ -15,8 +17,12 @@ class User extends Model
     }
 
     /** metódo responsável por buscar usuário por id */
-    public function load($id)
+    public function load(int $id, string $columns = "*")
     {
+        $load = $this->read("SELECT {$columns} FROM ".self::$entity." WHERE  id = :id", "id={$id}");
+        var_dump($load->fetchObject());
+
+
 
     }
 
