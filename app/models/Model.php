@@ -13,19 +13,19 @@ abstract class Model
     /** @var string\null **/
     protected $message;
 
-//    public function __set($name, $value)
-//    {
-//        if (empty($this->data)){
-//            $this->data = new \stdClass();
-//        }
-//        $this->data->name = $value;
-//
-//    }
+    public function __set($name, $value)
+    {
+        if (empty($this->data)){
+            $this->data = new \stdClass();
+        }
+        $this->data->$name = $value;
 
-//    public function __get(string $name)
-//    {
-//        // TODO: Implement __get() method.
-//    }
+    }
+
+    public function __get(string $name)
+    {
+        return $this->data->$name ?? null;
+    }
 
     /**
      * @return object|null
