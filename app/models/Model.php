@@ -24,7 +24,7 @@ abstract class Model
 
     public function __get(string $name)
     {
-        return $this->data->$name ?? null;
+        return ($this->data->$name) ?? null;
     }
 
     /**
@@ -77,7 +77,6 @@ abstract class Model
                 }
             }
             $stmt->execute();
-
             return  $stmt;
 
         }catch (\PDOException $exception){

@@ -13,7 +13,7 @@ $model = new \App\models\User();
 
 $user = $model->load("1");
 
-var_dump($user);
+var_dump($user, "{$user->data->last_name}");
 
 
 
