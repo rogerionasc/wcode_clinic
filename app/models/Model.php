@@ -4,18 +4,18 @@ namespace App\models;
 
 abstract class Model
 {
-    /** @var object|null **/
+    /** @var object|null * */
     protected $data;
 
-    /** @var ?\PDOException **/
+    /** @var ?\PDOException * */
     protected $fail;
 
-    /** @var string\null **/
+    /** @var string\null * */
     protected $message;
 
     public function __set($name, $value)
     {
-        if (empty($this->data)){
+        if (empty($this->data)) {
             $this->data = new \stdClass();
         }
         $this->data->$name = $value;
@@ -54,7 +54,7 @@ abstract class Model
     /**
      * @return void
      */
-    protected function create()
+    protected function create(string $entity, array $data)
     {
 
     }
@@ -68,19 +68,19 @@ abstract class Model
     {
         try {
             $stmt = Connected::getInstance()->prepare($select);
-            if($params){
+            if ($params) {
                 parse_str($params, $params);
 
-                foreach ($params as $key => $value){
-                    $type = (is_numeric($value) ? \PDO::PARAM_INT: \PDO::PARAM_STR);
+                foreach ($params as $key => $value) {
+                    $type = (is_numeric($value) ? \PDO::PARAM_INT : \PDO::PARAM_STR);
                     $stmt->bindValue(":{$key}", $value, $type);
                 }
             }
             $stmt->execute();
 
-            return  $stmt;
+            return $stmt;
 
-        }catch (\PDOException $exception){
+        } catch (\PDOException $exception) {
             $this->fail = $exception;
             return null;
 
@@ -109,15 +109,24 @@ abstract class Model
      */
     protected function safe(): ?array
     {
-        
+        $safe = (array)$this->data;
+        foreach (static::$safe as $unset) {
+            unset($safe[$unset]);
+        }
+        return $safe;
     }
 
     /**
-     * @return void
+     * @return array|null
      */
-    private function filter()
+    protected function filter(array $data): ?array
     {
-        
+        $filter = [];
+        foreach ($data as $key => $value) {
+            $filter[$key] = (is_null($value) ? null : filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS));
+        }
+        return $filter;
+
     }
 
 }

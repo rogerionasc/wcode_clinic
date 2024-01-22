@@ -9,11 +9,29 @@ fullStackPHPClassName("DEBBUG");
  */
 fullStackPHPClassSession("Herança e Polimorfismo", __LINE__);
 
-$model = new \App\models\User();
+$model = new App\models\User();
 
-$user = $model->load("1");
+$user = $model->bootstrap(
+    "Rogério",
+    "Nascimento",
+    "rogerionascimentosantos@gmail.",
+    "123456789"
+);
+
+$user->id = 11;
+$user->created_at = date("Y/m/d H:i");
+
+if (!$model->find($user->email)) {
+    echo "<p class='trigger warning'>Cadastro</p>";
+    $user->save();
+} else {
+    echo "<p class='trigger warning'>Read</p>";
+
+
+}
 
 var_dump($user);
+
 
 
 

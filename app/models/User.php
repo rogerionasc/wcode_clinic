@@ -11,8 +11,13 @@ class User extends Model
     protected static $entity = "users";
 
     /** metódo responsável por cadastrar o usuario */
-    public function bootstrap()
+    public function bootstrap(string $first_name, string $last_name, string $email, string $document = null): ?User
     {
+        $this->first_name = $first_name;
+        $this->last_name = $last_name;
+        $this->email = $email;
+        $this->document = $document;
+        return $this;
 
     }
 
@@ -22,31 +27,40 @@ class User extends Model
         $load = $this->read("SELECT {$columns} FROM ".self::$entity." WHERE  id = :id", "id={$id}");
         if ($this->fail() || !$load->rowCount()){
             $this->message = "Usuário não encontrado";
-            var_dump($this->message);
             return null;
         }
-
-        return var_dump($load->fetchObject(__CLASS__));
-
-
+        return $load->fetchObject(__CLASS__);
 
     }
 
     /** metódo responsável por buscar usuário por email */
-    public function find($email)
+    public function find($email, string $columns = "*")
     {
+        $find = $this->read("SELECT {$columns} FROM ".self::$entity." WHERE  email = :email", "email={$email}");
+        if ($this->fail() || !$find->rowCount()){
+            $this->message = "Usuário não encontrado com email informado";
+            return null;
+        }
+        return $find->fetchObject(__CLASS__);
 
     }
 
     /** metódo responsável por buscar todos usuários */
-    public function all($limit = 30, $offset = 0)
+    public function all(int $limit = 30, int $offset = 0, string $columns = "*")
     {
+        $all = $this->read("SELECT {$columns} FROM ".self::$entity." LIMIT :limit OFFSET :offset", "limit={$limit}&offset={$offset}");
+        if ($this->fail() || !$all->rowCount()){
+            $this->message = "Sua consulta não retornou usuários";
+            return null;
+        }
+        return $all->fetchAll(\PDO::FETCH_CLASS, __CLASS__);
 
     }
 
     /** metódo responsável por savar o usuário */
     public function save()
     {
+        $this->filter($this->safe());
 
     }
 
