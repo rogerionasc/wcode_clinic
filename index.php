@@ -30,7 +30,7 @@ if (!$model->find($user->email)) {
 
 }
 
-var_dump($user);
+var_dump($user, "{$user->data->last_name}");
 
 
 

@@ -4,13 +4,13 @@ namespace App\models;
 
 abstract class Model
 {
-    /** @var object|null * */
+    /** @var object|null **/
     protected $data;
 
-    /** @var ?\PDOException * */
+    /** @var ?\PDOException **/
     protected $fail;
 
-    /** @var string\null * */
+    /** @var string\null **/
     protected $message;
 
     public function __set($name, $value)
@@ -24,7 +24,7 @@ abstract class Model
 
     public function __get(string $name)
     {
-        return $this->data->$name ?? null;
+        return ($this->data->$name) ?? null;
     }
 
     /**
