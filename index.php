@@ -11,17 +11,21 @@ fullStackPHPClassSession("Herança e Polimorfismo", __LINE__);
 
 $model = new App\models\User();
 
-$user = $model->bootstrap(
+$user = $model->load(2);
+
+$user3 = $model->bootstrap(
     "Rogério",
     "Nascimento",
     "rogerionascimentosantos@gmail.",
     "123456789"
 );
+$user3->save();
 
-$user->id = 11;
+var_dump($user3);
+
 $user->created_at = date("Y/m/d H:i");
 
-if (!$model->find($user->email)) {
+if (!$model->find($user3->email)) {
     echo "<p class='trigger warning'>Cadastro</p>";
     $user->save();
 } else {
@@ -30,7 +34,7 @@ if (!$model->find($user->email)) {
 
 }
 
-var_dump($user, "{$user->data->last_name}");
+var_dump($user, "{$user->last_name}");
 
 
 
