@@ -2,24 +2,29 @@
 
 namespace App\models;
 
+use PDO;
+use PDOException;
+use PDOStatement;
+use stdClass;
+
 abstract class Model
 {
-    /** @var object|null **/
+
+    /** @var object|null * */
     protected $data;
 
-    /** @var ?\PDOException **/
+    /** @var ?PDOException * */
     protected $fail;
 
-    /** @var string\null **/
+    /** @var string\null * */
     protected $message;
 
     public function __set($name, $value)
     {
-        if (empty($this->data)){
-            $this->data = new \stdClass();
+        if (empty($this->data)) {
+            $this->data = new stdClass();
         }
         $this->data->$name = $value;
-
     }
 
     public function __get(string $name)
@@ -36,9 +41,9 @@ abstract class Model
     }
 
     /**
-     * @return \PDOException|null
+     * @return PDOException|null
      */
-    public function fail(): ?\PDOException
+    public function fail(): ?PDOException
     {
         return $this->fail;
     }
@@ -56,35 +61,31 @@ abstract class Model
      */
     protected function create()
     {
-
     }
 
     /**
      * @param string $select
      * @param string|null $params
-     * @return \PDOStatement|null
+     * @return PDOStatement|null
      */
-    protected function read(string $select, string $params = null): ?\PDOStatement
+    protected function read(string $select, string $params = null): ?PDOStatement
     {
         try {
             $stmt = Connected::getInstance()->prepare($select);
-            if($params){
+            if ($params) {
                 parse_str($params, $params);
 
-                foreach ($params as $key => $value){
-                    $type = (is_numeric($value) ? \PDO::PARAM_INT: \PDO::PARAM_STR);
+                foreach ($params as $key => $value) {
+                    $type = (is_numeric($value) ? PDO::PARAM_INT : PDO::PARAM_STR);
                     $stmt->bindValue(":{$key}", $value, $type);
                 }
             }
             $stmt->execute();
-            return  $stmt;
-
-        }catch (\PDOException $exception){
+            return $stmt;
+        } catch (PDOException $exception) {
             $this->fail = $exception;
             return null;
-
         }
-
     }
 
     /**
@@ -92,7 +93,6 @@ abstract class Model
      */
     protected function update()
     {
-
     }
 
     /**
@@ -100,7 +100,6 @@ abstract class Model
      */
     protected function delete()
     {
-
     }
 
     /**
@@ -108,7 +107,6 @@ abstract class Model
      */
     protected function safe(): ?array
     {
-        
     }
 
     /**
@@ -116,7 +114,6 @@ abstract class Model
      */
     private function filter()
     {
-        
     }
 
 }

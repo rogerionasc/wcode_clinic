@@ -13,7 +13,14 @@ $model = new \App\models\User();
 
 $user = $model->load("1");
 
-var_dump($user, "{$user->data->last_name}");
+$email = $model->find("robson1@email.com.br");
+
+$all = $model->all(10);
+
+var_dump("{$user->first_name}");
+
+var_dump($user, $email, $all);
+
 
 
 
